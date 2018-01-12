@@ -2,7 +2,7 @@
 - name: Creating static IP for master
   gce_eip:
     service_account_email: "{{ gce_service_account_email }}"
-    credentials_file: "{{ credentials_file }}"
+    credentials_file: "{{ gce_credentials_file }}"
     project_id: "{{ gce_project_id }}"
     name: "{{ openshift_master }}{{ counter }}"
     region: "{{ gce_default_region }}"
