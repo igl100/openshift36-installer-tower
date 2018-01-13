@@ -68,9 +68,9 @@
             private_ip={{ openshift_master_private_ip }} 
             public_ip={{ openshift_master_public_ip }}
             instance_name={{ openshift_master }}{{ counter }}
-            ansible_user={{ ssh_default_image_user }} 
-            ansible_password={{ ssh_default_image_password }}
-            ansible_port={{ ssh_default_image_port }}
+            ansible_user={{ username }}
+            ansible_password={{ password }}
+            ansible_port=22
   tags:
      - create_masters
 
