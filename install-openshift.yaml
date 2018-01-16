@@ -101,18 +101,22 @@
 
 ### CREATE INVENTORY FILE
      - name: Deleting old hosts file
-       file:
-          path: "./tmp/hosts"
+       tower_inventory:
+          name: "Gcloud Openshift"
+          description: "Openshift on GCloud"
+          organization: "Red Hat"
           state: absent
        ignore_errors: True
        tags: 
           - generating_inventory
 
-     - name: Copying Openshift file template
-       template:
-          src: "./templates/inventory_hosts.j2"
-          dest: "./tmp/hosts"
-       tags:
+     - name: Creating hosts file
+       tower_inventory:
+          name: "Gcloud Openshift"
+          description: "Openshift on GCloud"
+          organization: "Red Hat"
+          state: present
+       tags: 
           - generating_inventory
 
 ### DELETING OLD KEYS
